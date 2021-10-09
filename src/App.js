@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import './App.scss';
+import Column from './components/Column';
 
 function App() {
+  const [prosList, setProsList] = useState([]);
+  const [consList, setConsList] = useState([]);
+
+  const handlePrint = () => {
+    console.log(prosList, consList);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div>
+            <Column
+                list={prosList}
+                setList={setProsList}
+                secondaryList={consList}
+                setSecondaryList={setConsList}
+                title="Pros"
+            />
+            <Column
+                list={consList}
+                setList={setConsList}
+                secondaryList={prosList}
+                setSecondaryList={setProsList}
+                title="Cons"
+            />
+        </div>
+        <button className="print-button" onClick={handlePrint}>Print</button>
     </div>
   );
 }

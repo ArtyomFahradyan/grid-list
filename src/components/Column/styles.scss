@@ -1,0 +1,21 @@
+.column {
+  display: inline-grid;
+  border: 1px solid;
+
+  .title, .column-item {
+    padding: 10px;
+  }
+
+  .title {
+    border-bottom: 1px solid;
+  }
+
+  .column-item:nth-child(2n) {
+    background-color: lightblue;
+  }
+
+  .main-input {
+    //border-top: 1px solid;
+    margin: 10px;
+  }
+}
